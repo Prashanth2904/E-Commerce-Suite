@@ -25,11 +25,19 @@ public class TestController {
 	@Autowired
 	private TestService testService;
 
-	@RequestMapping(value="/login", method=RequestMethod.GET)
-    public String getLoginPage(Map<String, Object> model) {
+	@RequestMapping(value="/home", method=RequestMethod.GET)
+    public String getHomePage(Map<String, Object> model) {
 		model.put("categories", testService.getCategories());
         return "home";
     }
-
 	
+	@RequestMapping(value="/login", method=RequestMethod.GET)
+    public String getLoginPage(Map<String, Object> model) {
+        return "login";
+    }
+	
+	@RequestMapping(value="/error", method=RequestMethod.GET)
+    public String getErrorPage(Map<String, Object> model) {
+        return "error";
+    }
 }
